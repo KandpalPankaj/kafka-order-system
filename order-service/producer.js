@@ -1,7 +1,7 @@
 import { Kafka } from "kafkajs";
 
 const kafka = new Kafka({
-  clientId: "my-app",
+  clientId: "order",
   brokers: ["localhost:9092"],
 });
 
@@ -12,7 +12,7 @@ const runProducer = async () => {
   await producer.connect();
   try {
     await producer.send({
-      topic: "test-topic",
+      topic: "orders",
       messages: [
         {
           key: "order1",
